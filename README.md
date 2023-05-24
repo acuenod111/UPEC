@@ -44,3 +44,5 @@ It requires the full alignments which where outputted by snippy as input files:
 - papC.core.full.aln
 - papGII.core.full.aln
 
+# mass_from_aa-hdeA.py
+This script takes an amino acid multi-sequence alignment of the protein HdeA, removes the signal peptode from the sequences and predicts the molecular masses using protparam.
