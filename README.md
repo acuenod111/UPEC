@@ -1,7 +1,7 @@
-This directory contains scripts which were used to analyse bacterial data included in the study "Bacterial genome wide association study substantiates papGII of E. coli as a patient independent driver of urosepsis"
+This directory contains scripts which were used to analyse bacterial data included in the study "Bacterial genome wide association study substantiates papGII of E. coli as a patient independent driver of urosepsis". Input files for these scripts can be accessed via the Open Sciene Foundation https://osf.io/vmqc5/.
 
 # Vir_res_figures.R
-This script combines the output of different tools which were used to characterise E. coli strains (all files can be found in 'sequence_data_output' ). This includes: 
+This script combines the output of different tools which were used to characterise E. coli strains. This includes: 
 - mash_phylo.csv: Assignment of each strain to one out of 14 phylogroups. Phylogroups were assigned by calculating Mash distances to 14 reference strains (adapted from https://doi.org/10.1038/s42003-020-01626-5)
 - mlst__mlst__Escherichia_coli#1__results: Multi-Locus Sequence Types as assigned by srst2 (https://github.com/katholt/srst2)
 - EcOH__genes__EcOH__results.txt: O- and H- antigens as assigned by srst2 (https://github.com/katholt/srst2)
@@ -16,12 +16,13 @@ The file '825_strains_included.txt' lists one representative strain per clinical
 
 # plot_pyseer.R
 This script was adapted from https://pyseer.readthedocs.io/en/master/tutorial.html#interpreting-significant-k-mers and plots the association and average effect size of all unitigs with the endpoint 'invassive infection'. 
-One input file is required: 
-- gene_hits_all_825_no_ref.txt: gene hits identified by pyseer (https://pyseer.readthedocs.io/en/master/)
+Two input file is required: 
+- gene_hits_all_825.txt: gene hits identified by pyseer (https://pyseer.readthedocs.io/en/master/) including all clinical cases (n=825)
+- gene_hits_sign_657.txt: gene hits identified by pyseer (https://pyseer.readthedocs.io/en/master/) including only invasive cases for which a matching urine sample was available (n=657)
 
 # specta_preprocessing-bruker.R / specta_preprocessing-shimadzu.R
 These files pick peaks from the raw spectra, which were either generated using a mass spectrometer from Shimadzu (mzXML files) or from Bruker (fid files)
-These scripts can be run with
+These scripts can be run with:
 
 Rscript specta_preprocessing-shimadzu.R ./mzXml-processed_Launchpad ./Shimadzu/csv_median ./poso.tgnr.invas.csv
 Rscript specta_preprocessing-bruker.R ./fid ./Bruker/csv_median
