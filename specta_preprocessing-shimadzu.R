@@ -4,10 +4,6 @@ library("MALDIquantForeign")
 #Three arguments are required: input directory of .mzml files == args[1], and output directory were .csv files of peaks should go == args[2] and a csv file which contains the positions on the MALDI targes as well as the TGNR == args[3] ()
 args = commandArgs(trailingOnly=TRUE)
 
-#import unprocessed mzml files, exported from Launchpad
-spectra <- import('/Users/aline/Doc.Mobility/01_Data/01_spectra/E.coli/Shimadzu/test/', type="mzXML", removeEmptySpectra = TRUE, pattern=".mzXML")
-
-
 spectra_processed <- transformIntensity(spectra,method="sqrt")
 spectra_processed  <- trim(spectra_processed, range = c(4000,19090))
 spectra_processed  <- smoothIntensity(spectra_processed , method="SavitzkyGolay",halfWindowSize=20)

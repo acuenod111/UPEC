@@ -18,7 +18,7 @@ library(cowplot)
 
 # gapC
 # import gapC MSA
-gapC_alignment <- readDNAStringSet("/Users/aline/Doc.Mobility/01_Data/03_sequences/17_papG_PCR/snippy_snps_alignment/gapC.core.full.aln", format="fasta")
+gapC_alignment <- readDNAStringSet("gapC.core.full.aln", format="fasta")
 gapC_alignment <- DNAMultipleAlignment(gapC_alignment)
 
 # locate primers
@@ -113,7 +113,7 @@ gap_C_variant_plot <- cowplot::plot_grid(ncol = 3, gapC_F_plot, gapC_probe_plot,
 ########################
 
 # import papC MSA
-papC_alignment <- readDNAStringSet("/Users/aline/Doc.Mobility/01_Data/03_sequences/17_papG_PCR/snippy_snps_alignment/papC.core.full.aln", format="fasta")
+papC_alignment <- readDNAStringSet("papC.core.full.aln", format="fasta")
 papC_alignment <- DNAMultipleAlignment(papC_alignment)
 
 # locate primers
@@ -201,12 +201,12 @@ papC_probe_plot
 # combine plots
 papC_variant_plot <- cowplot::plot_grid(ncol = 3, papC_F_plot, papC_probe_plot, papC_R_plot)
 
-########################
-### repeat same to papC#
-########################
+##########################
+### repeat same to papGII#
+##########################
 
 # import papGII MSA
-papGII_alignment <- readDNAStringSet("/Users/aline/Doc.Mobility/01_Data/03_sequences/17_papG_PCR/snippy_snps_alignment/papGII.core.full.aln", format="fasta")
+papGII_alignment <- readDNAStringSet("papGII.core.full.aln", format="fasta")
 papGII_alignment <- DNAMultipleAlignment(papGII_alignment)
 
 # locate primers
@@ -298,6 +298,6 @@ papGII_variant_plot <- cowplot::plot_grid(ncol = 3, papGII_F_plot, papGII_probe_
 
 primer_variants <- cowplot::plot_grid(gap_C_variant_plot, papC_variant_plot, papGII_variant_plot, ncol = 1)
 
-pdf('/Users/aline/Doc.Mobility/04_Presentations/PCR_variant_barplots.pdf', height = 15, width = 12)
+pdf('../../../04_Presentations/PCR_variant_barplots.pdf', height = 15, width = 12)
 primer_variants
 dev.off()
